@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+python-multipart
+twilio
+python-dotenv
+langchain
+langchain-community
+langchain-groq
+langchain-huggingface
+langchain-pinecone
+pinecone
+pypdf
+sentence-transformers
+gspread
+google-auth

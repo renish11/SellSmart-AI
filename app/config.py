@@ -9,6 +9,7 @@ from typing import List
 from dotenv import load_dotenv
 
 
+# Safe to call even if .env doesn't exist (Render uses env vars directly)
 load_dotenv()
 
 

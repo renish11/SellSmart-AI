@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from fastapi import FastAPI, Form, HTTPException, Response
 from pydantic import BaseModel
 from twilio.twiml.messaging_response import MessagingResponse
@@ -93,15 +94,11 @@ def whatsapp_webhook(
     return Response(content=str(twiml), media_type="application/xml")
 
 
-import os
 import uvicorn
 
-# ... તારો બાકીનો કોડ ...
-
 if __name__ == "__main__":
-    # Render જાતે જ $PORT આપે છે, ન મળે તો 10000 વાપરશે.
+    # Render.com provides PORT env var, default to 10000 if not set
     port = int(os.environ.get("PORT", 10000))
     
-    # "main:app" માં 'main' એ તારી આ ફાઈલનું નામ હોવું જોઈએ. 
-    # જો આ ફાઈલનું નામ 'run.py' હોય તો "run:app" લખજે.
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
+    # Run the FastAPI app - app.main:app means app/main.py file with app object
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port)

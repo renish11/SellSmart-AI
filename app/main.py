@@ -91,3 +91,17 @@ def whatsapp_webhook(
         )
 
     return Response(content=str(twiml), media_type="application/xml")
+
+
+import os
+import uvicorn
+
+# ... તારો બાકીનો કોડ ...
+
+if __name__ == "__main__":
+    # Render જાતે જ $PORT આપે છે, ન મળે તો 10000 વાપરશે.
+    port = int(os.environ.get("PORT", 10000))
+    
+    # "main:app" માં 'main' એ તારી આ ફાઈલનું નામ હોવું જોઈએ. 
+    # જો આ ફાઈલનું નામ 'run.py' હોય તો "run:app" લખજે.
+    uvicorn.run("main:app", host="0.0.0.0", port=port)

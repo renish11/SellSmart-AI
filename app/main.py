@@ -97,8 +97,7 @@ def whatsapp_webhook(
 import uvicorn
 
 if __name__ == "__main__":
-    # Render.com provides PORT env var, default to 10000 if not set
+    # આ લાઈન બહુ જ અગત્યની છે! Render જાતે જ પોર્ટ આપશે.
     port = int(os.environ.get("PORT", 10000))
-    
-    # Run the FastAPI app - app.main:app means app/main.py file with app object
-    uvicorn.run("app.main:app", host="0.0.0.0", port=port)
+    # "app" એ તારા FastAPI ના વેરીએબલ નું નામ છે.
+    uvicorn.run(app, host="0.0.0.0", port=port)

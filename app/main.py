@@ -28,6 +28,11 @@ def health_check() -> dict:
     return {"status": "ok"}
 
 
+@app.get("/")
+def read_root():
+    return {"status": "I am awake!"}
+
+
 @app.post("/query", response_model=QueryResponse)
 def query_catalog(payload: QueryRequest) -> QueryResponse:
     """
